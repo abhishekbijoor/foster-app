@@ -1,0 +1,174 @@
+
+import numpy as np
+import pandas as pd
+
+data=pd.read_excel("mavoix_ml_sample_dataset.xlsx")
+
+df=pd.DataFrame(data)
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+data.isnull().sum()
+
+data=[df]
+for d in data:
+    d["title"]=df["Stream"]
+print(d['title'].value_counts())
+t=dict(d['title'])
+
+arr={"Computer Science":0,
+     "Electronics and Communication":2,
+     "Computer Science & Engineering":0,
+     "Computer Application":0,
+     "Information Technology":0,
+     "Mechanical Engineering":1,
+     "computer science":0,
+     "Data Science":0,
+     "Electronics and Telecommunication Engineering (ETE)":2,
+     "Electrical and Electronics Engineering":2,
+     "Mathematics":0,
+     "MCA":0,
+     "Data Analytics":0,
+     "IT":0,
+     "Information Science":0,
+     "cs":0,                                                           
+"Business Analytics":0,                                           
+"Artificial Intelligence":0,                                      
+"Statistics":0,                                                   
+"Civil Engineering":3,                                            
+"Information Systems":2,                                          
+"Production Engineering":3,                                       
+"Electronics and Instrumentation":2,                              
+"Computer Science And Application":0,                             
+"Artificial Intelligence And Machine Learning":0,                 
+"Motel Management":3,                                             
+"Aerospace Engineering":1,                                        
+"Mobile Application And Cloud Technology":0,                      
+"Core JAVA":0,                                                    
+"Big Data Analytics":0,                                                                                          
+"Advanced Big Data Analytics":0,                        
+"Education":3,                                                    
+"Data Science And Engineering":0,                                 
+"Marketing":3,
+"Finance And Analytics":0,                                        
+"Biological sciences and bioengineering":3,                       
+"Software Engineering":0,                                         
+"Instrumentation & Electronics":2,                                
+"Computer Network And Engg":0,                                    
+"Computer Science &amp;engineering":0,                            
+"Computer Science AndEngineering":0,                              
+"Machine Learning And Artificial Intelligence":0,                 
+"E Learning Technologies":0,                                      
+"Ceramic Engineering":3,                                          
+"Computer  Applications":0,                                       
+"Science":3,                                                      
+"Finance":3,                                                      
+"Computer Science With The Specialization In Data Science":0,     
+"Remote Sensing And Wireless Sensor":2,                           
+"Kannur University":3,                                              
+"Commerce With Maths":3,                                          
+"Computer Science And Mathematics":0,                             
+"Commerce":3,                                                     
+"Sensor Systems Technology":2,                                    
+"Data Science Engineering":0,                                     
+"Data Science, Data Analytics, Big Data":0,                       
+"Design":3,                                                       
+"Computer Technology":0,"Computer  Science And Engineering":0,"Advance Diploma In Big Data Analytics":0,None:3}
+
+
+import math
+for d in data:
+    d['Stream']=d['title'].map(arr)
+d['Stream']=d['Stream'].fillna(3)
+    
+data=[df]
+for d in data:
+    d["city"]=df["Current City"]
+print(dict(d['city'].value_counts()))
+
+k={'Bangalore': 0, 'Hyderabad': 1, 'Banglore': 0, 'Chennai': 2, 'Pune': 3, 'Delhi': 4, 'Durgapur': 4, 'Noida': 4, 'Durg': 4, 'Kanpur': 4, 'Mahé': 4, 'Jaipur': 4, 'Kolkata':4, 'Indore': 4, 'Thrissur': 4, 'Coimbatore': 4, 'Ranchi': 4, 'Kozhikode': 4, 'Shillong': 4, 'Bhubaneswar': 4, 'Nagpur': 4, 'Mumbai': 4, 'Jalandhar': 4, 'Varanasi': 4, 'Jamshedpur': 4, 'Tirupati': 4, 'Raigarh': 4, 'Guwahati': 4, 'Namakkal': 4, 'Visakhapatnam': 4, 'Dehradun': 4, 'Vadodara': 4, 'Kochi': 4, 'Mysuru': 1, 'Lucknow': 4, 'Kannur': 4, 'Walajapet': 4, 'Greater Noida': 4, 'Tiruppur': 4, 'Mangaluru': 4, 'Ernakulam': 4, 'Meerut': 4, 'Raebareli': 4, 'Agra': 4, 'Barhampur': 4, 'Thane': 4, 'Roorkee': 4, 'Akola': 4, 'Idupulapaya': 4, 'Kharagpur': 4, 'Tezpur': 4, 'Vellore': 4, 'Dharwad': 4, 'Haryana': 4, 'Chandigarh': 4, 'Kolhapur': 4, 'Nashik': 4, 'Agartala': 4, 'Gorakhpur': 4, 'Ghaziabad': 4, 'Ajmer': 4, 'Vasco Da Gama': 4, 'Rudrapur': 4}
+
+for d in data:
+    d['Current City']=d['city'].map(k)
+d['Current City']=d['Current City'].fillna(4)
+  
+data=[df]
+for d in data:
+    d["degree"]=df["Degree"]
+print(d['degree'].value_counts())
+
+
+h=dict(d['degree'].value_counts())
+
+
+arr={'Bachelor of Technology (B.Tech)': 0,
+ 'Bachelor of Engineering (B.E)': 1,
+ 'Master of Computer Applications (MCA)': 2,
+ 'B.Tech (Hons.)': 3,
+ 'Master of Technology (M.Tech)': 4,
+ 'Master of Science (M.Sc)': 5,
+ 'Bachelor of Computer Applications (BCA)': 5,
+ 'Post Graduate Programme (PGP)': 5,
+ 'Integrated M.Sc.': 5,
+ 'Bachelor of Science (B.Sc)': 5,
+ 'PG Diploma in Data Science': 5,
+ 'Integrated B.Tech & M.Tech': 5,
+ 'MBA': 5,
+ 'Bachelor of Commerce (B.Com)': 5,
+ 'Integrated B.Tech': 5,
+ 'Post Graduate Diploma in Management (P.G.D.M.)':5,
+ 'Bachelor of Arts (B.A.) (Hons.)': 5,
+ 'B.Com. Professional': 5,
+ 'Integrated M.Tech': 5,
+ 'Bachelor of Commerce (B.Com) (Hons.)': 5,
+ 'Bachelor of Computer Science (B.C.S.)': 5,
+ 'Executive MBA': 5,
+ 'Post Graduate Diploma': 5,
+ 'Integrated B.E & M.Tech': 5,
+ 'Master of Science (M.Sc) (Hons.)': 5,
+ 'Bachelor of Engineering (B.E) (Hons.)': 5,
+ 'Post Graduate Program in Business Analytics': 5,
+ 'Bachelor of Business Management (B.B.M.)': 5,
+ 'Bachelor of Business Administration (B.B.A.)': 5,
+ 'Master of Science (M.S.)': 5,
+ 'Post Graduate Diploma in Big Data Analytics (PG-DBDA)': 5}
+ 
+ data=[df]
+data
+for d in data:
+    d['Degree']=d['degree'].map(arr)
+d['Degree']=d['Degree'].fillna(5)
+
+
+df=df.drop("Other skills",axis=1)
+df=df.drop("title",axis=1)
+df=df.drop("city",axis=1)
+df=df.drop("degree",axis=1)
+df=df.drop('Application_ID',axis=1)
+df=df.drop('Current Year Of Graduation',axis=1)
+
+df['performance_ug']=df['Performance_UG'].fillna("0.7")
+
+h=list(df['performance_ug'])
+
+for i in range(len(h)):
+    h[i]=eval(h[i])
+
+df['Performance_UG']=h
+
+df['performance_12']=df['Performance_12'].fillna('0.7')
+
+h=list(df['performance_12'])
+
+for i in range(len(h)):
+    h[i]=eval(h[i])
+df=df.drop("performance_ug",axis=1)
+df=df.drop("performance_12",axis=1)
+
+df=df.drop("Performance_10",axis=1)
+df=df.drop("Performance_12",axis=1)
+df=df.dropna(how='all', axis='columns')
+
+from sklearn.cluster import KMeans
+kmeans = KMeans(n_clusters=3)
+kmeans.fit(df)
